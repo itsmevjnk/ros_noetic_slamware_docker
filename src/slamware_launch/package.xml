@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>slamware_launch</name>
+  <version>0.0.0</version>
+  <description>The slamware_launch package</description>
+  <maintainer email="s223145883@deakin.edu.au">Vinh Nguyen</maintainer>
+  <license>MIT</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <exec_depend>slamware_ros_sdk</exec_depend>
+</package>
