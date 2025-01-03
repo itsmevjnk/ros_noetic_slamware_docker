@@ -1,8 +1,11 @@
 <launch>
-    <rosparam command="load" file="$(find slamware_launch)/bridge.yml" />
+    <arg name="load_bridge_cfg" default="$(optenv LOAD_BRIDGE_CFG false)" />
+    <rosparam command="load" file="$(find slamware_launch)/bridge.yml" if="$(arg load_bridge_cfg)" />
+
+    <arg name="lidar_ip" default="$(optenv LIDAR_IP 192.168.11.1)" />
 
     <node name="slamware_ros_sdk_server_node" pkg="slamware_ros_sdk" type="slamware_ros_sdk_server_node" output="screen">
-        <param name="ip_address" value="$(optenv LIDAR_IP 192.168.11.1)" />
+        <param name="ip_address" value="$(arg lidar_ip)" />
         <param name="angle_compensate" value="true" />
         <param name="fixed_odom_map_tf" value="true" />
 
