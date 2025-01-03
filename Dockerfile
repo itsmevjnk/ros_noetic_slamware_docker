@@ -24,4 +24,5 @@ RUN rm -rf /var/lib/apt/lists/*
 
 # set up entry point
 RUN sed --in-place --expression '$isource "$ROS_WS/devel/setup.bash"' /ros_entrypoint.sh
+RUN sed --in-place --expression '$iexport ROS_IP=\$(hostname -i)' /ros_entrypoint.sh
 CMD ["roslaunch", "slamware_launch", "rplidar_start.launch"]
